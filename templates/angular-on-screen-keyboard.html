@@ -1,12 +1,24 @@
 ﻿<div class="keyboard">
-    <table>
-        <tr ng-repeat="row in ctrl.rows">
-            <td ng-repeat="key in row"
-                ng-click="ctrl.printKeyStroke(key, $event)"
-                colspan="{{key.colspan || 1}}"
-                ng-class="{'button': key.type !== 'margin', 'letter': key.type !== 'margin'}"
-                class="{{key.type}}"  ng-bind-html="ctrl.getText(key)">
-            </td>
-        </tr>
-    </table>
+    <div class="row">
+        <table class="form-group col-12 col-sm-6 col-md-9" ng-show="ctrl.alfanumeric">
+            <tr ng-repeat="row in ctrl.rows.alfa">
+                <td ng-repeat="key in row"
+                    ng-click="ctrl.printKeyStroke(key, $event)"
+                    colspan="{{key.colspan || 1}}"
+                    ng-class="{'number': key.type === 'number', 'letter': key.type !== 'margin' && key.type !== 'number'}"
+                    ng-bind-html="ctrl.getText(key)">
+                </td>
+            </tr>
+        </table>
+        <table class="form-group col-12 col-sm-6 col-md-3" ng-show="ctrl.numeric">
+            <tr ng-repeat="row in ctrl.rows.numeric">
+                <td ng-repeat="key in row"
+                    ng-click="ctrl.printKeyStroke(key, $event)"
+                    colspan="{{key.colspan || 1}}"
+                    ng-class="{'number': key.type === 'number', 'letter': key.type !== 'margin' && key.type !== 'number'}"
+                    ng-bind-html="ctrl.getText(key)">
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

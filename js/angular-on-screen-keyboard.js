@@ -10,13 +10,15 @@ angular.module('onScreenKeyboard', ['ngSanitize'])
             scope: {
                 rows : '=?',
                 uppercaseAllWords : '@',
+                alfanumeric : '=?',
+                numeric : '=?'
             },
             controller: function($sce){
                 var ctrl = this;
 
                 if (!ctrl.rows){
                     ctrl.rows = [
-                        ['1', '2', '3', '4','5','6','7','8', '9', '0', {type: 'erase', colspan: 2, text: '&lArr;'}],
+                        ['1', '2', '3','4','5','6','7','8', '9', '0', {type: 'erase', colspan: 2, text: '&lArr;'}],
                         ['q','w','e','r','t','y','u','i','o','p','@'],
                         ['a','s','d','f','g','h','j','k','l','-','_', {type: 'margin'}],
                         [{type: 'shift', upperCase: '&dArr;', lowerCase: '&uArr;'}, 'z','x','c','v','b','n','m',',', '.',{type: 'shift', upperCase: '&dArr;', lowerCase: '&uArr;'}],
