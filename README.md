@@ -31,7 +31,23 @@ Usage
 angular.module('myAngularApp', ['onScreenKeyboard']);
 ```
 
-3. Add the ```html <on-screen-keyboard></on-screen-keyboard>``` tag in your markup
+3. Add the ```html <on-screen-keyboard rows="rows" alfanumeric="true" numeric="true"></on-screen-keyboard>``` tag in your markup
+
+4.In controller create your object with two properties :
+        $scope.rows = {};
+        $scope.rows.alfa = [
+            ['q','w','e','r','t','y','u','i','o','p'],
+            ['a','s','d','f','g','h','j','k','l','ñ'],
+            ['z','x','c','v','b','n','m',{type: 'erase', colspan: 3, text: 'spr'}],
+            [{type: 'margin', colspan: 2}, {type: 'button', colspan: 4, text: ' '}]
+        ];
+        $scope.rows.numeric = [
+            [{type: 'number', text: '7'},{type: 'number', text: '8'},{type: 'number', text: '9'}],
+            [{type: 'number', text: '4'},{type: 'number', text: '5'},{type: 'number', text: '6'}],
+            [{type: 'number', text: '1'},{type: 'number', text: '2'},{type: 'number', text: '3'}],
+            [{type: 'number', text: '0', colspan: 2},{type: 'number', text: '/'}],
+            [{type: 'number', text: ','},{type: 'number', text: '*'},{type: 'number', text: '+'}]
+        ]
 
 API (optional)
 --------------
