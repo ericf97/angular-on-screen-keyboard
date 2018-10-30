@@ -56,6 +56,7 @@ angular.module('onScreenKeyboard', ['ngSanitize'])
                 ctrl.endPos = null;
 
                 ctrl.printKeyStroke = function(key, event){
+
                     if (!ctrl.lastInputCtrl)
                         return;
 
@@ -123,14 +124,14 @@ angular.module('onScreenKeyboard', ['ngSanitize'])
                         return;
                     }
                     else if (ctrl.lastInputCtrl.className && ctrl.isUpperCase)
-                        ctrl.isUpperCase = false;
+                        ctrl.isUpperCase = true;
                     else if (angular.element(ctrl.lastInputCtrl).val().length === 0) {
                         ctrl.isUpperCase = true;
                     }
                     else if (angular.element(ctrl.lastInputCtrl).val().slice(-1) === ' ' && !ctrl.isUpperCase && attr.uppercaseAllWords !== undefined)
                         ctrl.isUpperCase = true;
                     else{
-                        ctrl.isUpperCase = false;
+                        ctrl.isUpperCase = true;
                     }
                 };
 
